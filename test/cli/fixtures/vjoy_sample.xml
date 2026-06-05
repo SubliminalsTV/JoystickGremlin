@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<profile version="14">
+    <inputs>
+        <input>
+            <device-id>aaaa1111-0000-0000-0000-000000000001</device-id>
+            <input-type>button</input-type>
+            <mode>Default</mode>
+            <input-id>5</input-id>
+            <action-configuration>
+                <root-action>11111111-1111-1111-1111-111111111111</root-action>
+                <behavior>button</behavior>
+            </action-configuration>
+        </input>
+    </inputs>
+    <settings>
+        <startup-mode>Default</startup-mode>
+    </settings>
+    <logical-device/>
+    <library>
+        <action id="22222222-2222-2222-2222-222222222222" type="map-to-vjoy">
+            <property type="int">
+                <name>vjoy-device-id</name>
+                <value>1</value>
+            </property>
+            <property type="int">
+                <name>vjoy-input-id</name>
+                <value>14</value>
+            </property>
+            <property type="input_type">
+                <name>vjoy-input-type</name>
+                <value>button</value>
+            </property>
+            <property type="string">
+                <name>action-label</name>
+                <value>Map to vJoy</value>
+            </property>
+            <property type="activation-mode">
+                <name>activation-mode</name>
+                <value>both</value>
+            </property>
+        </action>
+        <action id="11111111-1111-1111-1111-111111111111" type="root">
+            <actions>
+                <action-id>22222222-2222-2222-2222-222222222222</action-id>
+            </actions>
+            <property type="string">
+                <name>action-label</name>
+                <value>Root</value>
+            </property>
+            <property type="activation-mode">
+                <name>activation-mode</name>
+                <value>disallowed</value>
+            </property>
+        </action>
+    </library>
+    <modes>
+        <mode>Default</mode>
+    </modes>
+    <scripts/>
+    <devices/>
+</profile>
