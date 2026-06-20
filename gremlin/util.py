@@ -887,6 +887,9 @@ def userprofile_path() -> str:
     Returns:
         Path to the user's profile folder
     """
+    override = os.getenv("JG_DATA_DIR")
+    if override:
+        return str(Path(override).resolve())
     return str((Path(os.getenv("userprofile")) / "Joystick Gremlin").resolve())
 
 

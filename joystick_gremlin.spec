@@ -202,7 +202,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name="joystick_gremlin",
+    name="joystick_gremlin_playground",
     debug=True,
     bootloader_ignore_signals=False,
     exclude_binaries=single_folder,
@@ -226,5 +226,5 @@ if single_folder:
         strip=False,
         upx=True,
         upx_exclude=[],
-        name="joystick_gremlin",
+        name="joystick_gremlin_playground",
     )
