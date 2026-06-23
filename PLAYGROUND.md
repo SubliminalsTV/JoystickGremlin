@@ -1,64 +1,20 @@
-# Joystick Gremlin — SubliminalsTV Playground Build
+# Joystick Gremlin — SubliminalsTV Build
 
-An experimental build of [Joystick Gremlin](https://github.com/WhiteMagic/JoystickGremlin)
-(by WhiteMagic) maintained by **SubliminalsTV**, based on the **R14.3** release.
+My playground build of Joystick Gremlin, based on **R14.3**. This is where I test features I'm considering pushing toward the official build — if something proves itself here, it goes upstream to WhiteMagic as a proper PR. You'll know you're running it by the SubliminalsTV logo and **"Experimental Features"** badge in the top-right of the toolbar.
 
-You can tell you're running this build by the **SubliminalsTV logo + bold
-"Experimental Features" badge** in the top-right of the main toolbar. (If you're
-helping someone in Discord and you see that badge, they're on this build — not
-the official one.)
+The trade-off's simple: you get to try new stuff early, at the cost of some stability. Want rock-solid? Run WhiteMagic's official R14.3. Want to poke at what might be coming and don't mind the occasional rough edge? This is for you.
 
-> ⚠️ **Experimental / unofficial.** This is a personal playground for trying ideas
-> ahead of (and on top of) the official app. For the stable, supported version use
-> WhiteMagic's official **R14.3**. Several of the features below are being
-> contributed back upstream — see [Upstreaming](#upstreaming).
+## What's different from R14.3
+- **Light / Dark / High Contrast Dark** themes — switch live, no restart
+- **Minimize to system tray** — optional, off by default
+- **Play Sound / Text-to-Speech** work in the packaged build
+- **Offline profile CLI** (`gremlin_cli.py`) for inspecting and editing profile XML
+- Runs **side-by-side** with the official build (isolated settings)
 
-## What this build adds over R14.3
+## Get it
+Grab the latest from [Releases](https://github.com/SubliminalsTV/JoystickGremlin/releases), extract it, and run `joystick_gremlin_playground.exe` from the folder. If you use HidHide to hide your physical sticks, whitelist that `.exe` so they show up.
 
-### Light / Dark / High Contrast Dark themes — switch live
-A `Color mode` option (Settings) with three palettes — **Light**, **Dark** (soft
-charcoal), and **High Contrast Dark** (the original pure black/white). Switching
-applies **immediately**, no restart, and the action-icon glyphs recolour to stay
-legible in every theme.
+## Contributing
+I'm not taking contributions here — this is just my testing bench. If you've got a feature or fix for Joystick Gremlin, take it straight to [WhiteMagic's repo](https://github.com/WhiteMagic/JoystickGremlin). That's the real project; I'm just tinkering on top of it.
 
-### Minimize to system tray
-A `Minimize to tray` option (off by default). When enabled, minimizing the window
-hides it to a tray icon instead of leaving it on the taskbar; click the icon to
-restore. The tray menu offers profile activate/deactivate and quit, and the icon
-reflects whether a profile is currently active.
-
-### Offline profile CLI (`gremlin_cli.py`)
-A Qt-free command-line tool for inspecting and editing profile XML without launching
-the GUI — info, modes, bindings, validate, diff, tree, and targeted edits (rename
-mode, set vJoy, flip axis, set labels/descriptions, and more). It reproduces JG's
-exact file serialization, so edited profiles stay byte-compatible. Handy for
-maintaining the Curated Bindings profiles in bulk.
-
-### Audio / Text-to-Speech works in the compiled build
-The frozen build keeps `Qt6Multimedia`, which the stock packaging strips — so
-the **Play Sound** and **Text-to-Speech** actions work in this distributable build
-rather than only when run from source.
-
-### Isolated data directory (coexists with other builds)
-Honors a `JG_DATA_DIR` environment variable for its config/profiles, so this build
-runs side-by-side with the official R14.3 without the two overwriting each other's
-settings. (The included launcher points it at its own folder automatically.)
-
-## Upstreaming
-
-These features are being submitted to WhiteMagic's repo as small, focused PRs:
-
-- **Action glyphs follow the theme + live recolour** — [#780](https://github.com/WhiteMagic/JoystickGremlin/pull/780) (merged)
-- **Legible inactive tab labels in dark mode** — [#783](https://github.com/WhiteMagic/JoystickGremlin/pull/783) (merged)
-- **Apply UI config changes live (no restart)** — [#781](https://github.com/WhiteMagic/JoystickGremlin/pull/781) (open)
-- **Minimize to system tray** — [#789](https://github.com/WhiteMagic/JoystickGremlin/pull/789) (open)
-
-The three-mode `Color mode` picker and the profile CLI are fork extensions on top of
-that work.
-
-## Credits & license
-
-Built on **[Joystick Gremlin](https://github.com/WhiteMagic/JoystickGremlin)** by
-WhiteMagic and licensed **GPL-3.0-only**, the same as upstream. The full
-corresponding source for this build is this branch — please support the upstream
-project.
+Built on Joystick Gremlin by WhiteMagic. GPL-3.0-only.
