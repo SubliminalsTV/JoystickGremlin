@@ -57,6 +57,7 @@ import gremlin.ui.action_image_generator
 import gremlin.ui.backend
 import gremlin.ui.option
 import gremlin.ui.tools
+import gremlin.ui.tray
 import gremlin.ui.util
 
 
@@ -170,6 +171,11 @@ def register_config_options() -> None:
         PropertyType.Selection, "Light",
         "UI color theme.",
         {"valid_options": ["Light", "Dark", "High Contrast Dark"]}, True
+    )
+    cfg.register(
+        "global", "general", "minimize-to-tray",
+        PropertyType.Bool, False,
+        "Minimize to the system tray instead of the taskbar.", {}, True
     )
     cfg.register(
         "global", "general", "refresh-axis-on-activation",
@@ -348,6 +354,14 @@ class JoystickGremlinApp(QtWidgets.QApplication):
 
         self.process_cmd_args(cmd_args)
         self.backend.check_for_updates()
+
+        # Create the system tray icon so the window can hide to and be
+        # restored from the tray.
+        self.main_window = self.engine.rootObjects()[0]
+        if QtWidgets.QSystemTrayIcon.isSystemTrayAvailable():
+            self.tray_icon = gremlin.ui.tray.SystemTrayIcon(
+                self.main_window, self
+            )
 
         # Run UI.
         self.syslog.info("Gremlin UI launching")
