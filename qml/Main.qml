@@ -353,6 +353,44 @@ ApplicationWindow {
                 //     highlighted: _modeSelector.highlightedIndex === index
                 // }
             }
+
+            // Playground build badge: flags this as the SubliminalsTV
+            // experimental build so support helpers can recognise it.
+            Label {
+                Layout.rightMargin: 8
+
+                text: "Experimental Features"
+                color: Style.accent
+                font.bold: true
+            }
+
+            Image {
+                id: _experimentalLogo
+
+                Layout.rightMargin: 10
+                Layout.alignment: Qt.AlignVCenter
+                Layout.preferredWidth: 44
+                Layout.preferredHeight: 44
+
+                source: "../gfx/experimental-logo.png"
+                fillMode: Image.PreserveAspectFit
+                sourceSize.width: 128
+                sourceSize.height: 128
+                smooth: true
+                mipmap: true
+
+                MouseArea {
+                    id: _experimentalLogoHover
+
+                    anchors.fill: parent
+                    hoverEnabled: true
+                }
+                ToolTip {
+                    visible: _experimentalLogoHover.containsMouse
+                    text: qsTr("SubliminalsTV experimental build")
+                    delay: 500
+                }
+            }
         }
     }
 
