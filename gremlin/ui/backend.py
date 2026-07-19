@@ -16,6 +16,7 @@ from PySide6 import (
 )
 
 import dill
+import gremlin.ui.themes as themes
 import gremlin.ui.type_aliases as ta
 from gremlin import (
     audio_player,
@@ -470,14 +471,24 @@ class Backend(QtCore.QObject):
         """
         self._action_state[(uuid.UUID(uuid_str), index)] = bool(is_expanded)
 
-    @QtCore.Property(bool, notify=propertyChanged)
-    def useDarkMode(self) -> bool:
-        """Returns whether or not dark mode is enabled.
+    @QtCore.Property("QVariantMap", notify=propertyChanged)
+    def currentTheme(self) -> dict[str, object]:
+        """Returns the currently selected UI theme as a data record.
 
         Returns:
-            True if dark mode is enabled, False otherwise
+            The selected theme's record (see gremlin.ui.themes).
         """
-        return self.config.value("global", "general", "dark-mode")
+        name = self.config.value("global", "general", "theme")
+        return themes.theme_by_name(name)
+
+    @QtCore.Property(bool, notify=propertyChanged)
+    def useDarkMode(self) -> bool:
+        """Returns whether the active theme uses a dark base.
+
+        Returns:
+            True if the selected theme builds on the dark Universal base.
+        """
+        return bool(self.currentTheme["dark"])
 
     @QtCore.Property(type=list, notify=recentProfilesChanged)
     def recentProfiles(self) -> list[str]:

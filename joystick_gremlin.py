@@ -62,6 +62,7 @@ import gremlin.types
 import gremlin.ui.action_image_generator
 import gremlin.ui.backend
 import gremlin.ui.option
+import gremlin.ui.themes
 import gremlin.ui.tools
 import gremlin.ui.tray
 import gremlin.ui.util
@@ -213,11 +214,11 @@ def register_config_options() -> None:
     cfg.register(
         "global",
         "general",
-        "dark-mode",
-        PropertyType.Bool,
-        False,
-        "Use the dark mode UI.",
-        {},
+        "theme",
+        PropertyType.Selection,
+        gremlin.ui.themes.DEFAULT_THEME,
+        "Colour theme used by the interface.",
+        {"valid_options": gremlin.ui.themes.theme_names()},
         True,
     )
     cfg.register(

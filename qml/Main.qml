@@ -29,7 +29,7 @@ ApplicationWindow {
     id: _root
 
     Component.onCompleted: () => {
-        Style.isDarkMode = backend.useDarkMode
+        Style.currentTheme = backend.currentTheme
     }
 
     Universal.theme: Style.theme
@@ -469,7 +469,7 @@ ApplicationWindow {
         // Re-apply UI config (e.g. dark mode) live, so toggling it in the
         // options takes effect immediately instead of needing a restart.
         function onConfigChanged() {
-            Style.isDarkMode = backend.useDarkMode
+            Style.currentTheme = backend.currentTheme
         }
 
         function onShowError(message, details) {
