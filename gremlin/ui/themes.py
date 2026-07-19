@@ -25,7 +25,7 @@ THEMES: list[dict[str, object]] = [
         "name": "Dark",
         "dark": True,
         "accent": "",
-        "background": "#0d0d0d",
+        "background": "#2b2b2b",
         "foreground": "",
     },
     {

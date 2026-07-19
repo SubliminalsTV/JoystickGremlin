@@ -104,7 +104,7 @@ Button {
     background: Rectangle {
         border.color: hovered ? Style.accent : selected ? Style.accent : Style.backgroundShade
         border.width: 1
-        color: selected ? Universal.chromeMediumColor : Style.background
+        color: selected ? Style.chromeMediumColor : Style.background
     }
 
     contentItem: Item {

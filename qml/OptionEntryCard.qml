@@ -6,6 +6,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 import Gremlin.Config
+import Gremlin.Style
 import "helpers.js" as Helpers
 
 Pane {
@@ -18,8 +19,8 @@ Pane {
     padding: 10
 
     background: Rectangle {
-        color: Universal.chromeLowColor
-        border.color: Universal.chromeMediumColor
+        color: Style.chromeLowColor
+        border.color: Style.chromeMediumColor
         border.width: 1
         radius: 4
     }

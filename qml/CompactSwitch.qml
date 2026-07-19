@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Templates as T
 import QtQuick.Controls.Universal
+import Gremlin.Style
 
 
 T.Switch {
@@ -36,6 +37,6 @@ T.Switch {
         verticalAlignment: Text.AlignVCenter
 
         opacity: enabled ? 1.0 : 0.2
-        color: control.Universal.foreground
+        color: Style.foreground
     }
 }

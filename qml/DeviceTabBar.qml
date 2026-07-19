@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Templates as T
 import QtQuick.Controls.Universal
+import Gremlin.Style
 
 T.TabBar {
     id: control
@@ -69,6 +70,6 @@ T.TabBar {
     background: Rectangle {
         implicitWidth: 200
         implicitHeight: 48
-        color: control.Universal.background
+        color: Style.background
     }
 }

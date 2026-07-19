@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Templates as T
 import QtQuick.Controls.Universal
+import Gremlin.Style
 
 Item {
     id: indicator
@@ -22,11 +23,11 @@ Item {
 
         radius: height / 2 //10
         color: !indicator.control.enabled ? "transparent" :
-                indicator.control.pressed ? indicator.control.Universal.baseMediumColor :
-                indicator.control.checked ? indicator.control.Universal.accent : "transparent"
-        border.color: !indicator.control.enabled ? indicator.control.Universal.baseLowColor :
-                       indicator.control.checked && !indicator.control.pressed ? indicator.control.Universal.accent :
-                       indicator.control.hovered && !indicator.control.checked && !indicator.control.pressed ? indicator.control.Universal.baseHighColor : indicator.control.Universal.baseMediumColor
+                indicator.control.pressed ? Style.baseMediumColor :
+                indicator.control.checked ? Style.accent : "transparent"
+        border.color: !indicator.control.enabled ? Style.baseLowColor :
+                       indicator.control.checked && !indicator.control.pressed ? Style.accent :
+                       indicator.control.hovered && !indicator.control.checked && !indicator.control.pressed ? Style.baseHighColor : Style.baseMediumColor
         opacity: enabled && indicator.control.hovered && indicator.control.checked && !indicator.control.pressed ? (indicator.control.Universal.theme === Universal.Light ? 0.7 : 0.9) : 1.0
         border.width: height < 20 ? 1 : 2
     }
@@ -38,9 +39,9 @@ Item {
         height: 0.6 * slot.height //10
         radius: height / 2 //5
 
-        color: !indicator.control.enabled ? indicator.control.Universal.baseLowColor :
-                indicator.control.pressed || indicator.control.checked ? indicator.control.Universal.chromeWhiteColor :
-                indicator.control.hovered && !indicator.control.checked ? indicator.control.Universal.baseHighColor : indicator.control.Universal.baseMediumHighColor
+        color: !indicator.control.enabled ? Style.baseLowColor :
+                indicator.control.pressed || indicator.control.checked ? Style.chromeWhiteColor :
+                indicator.control.hovered && !indicator.control.checked ? Style.baseHighColor : Style.baseMediumHighColor
 
         x: indicator.control.visualPosition < 0.5 ? width / 2 : parent.width - 1.5 * width
         y: (parent.height - height) / 2

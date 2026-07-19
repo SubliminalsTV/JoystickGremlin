@@ -398,7 +398,7 @@ ApplicationWindow {
         id: _footer
 
         height: 30
-        color: Universal.chromeMediumColor
+        color: Style.chromeMediumColor
 
         RowLayout {
             anchors.fill: parent
