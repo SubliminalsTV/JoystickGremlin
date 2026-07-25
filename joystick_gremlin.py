@@ -62,9 +62,9 @@ import gremlin.types
 import gremlin.ui.action_image_generator
 import gremlin.ui.backend
 import gremlin.ui.option
+import gremlin.ui.system_tray
 import gremlin.ui.themes
 import gremlin.ui.tools
-import gremlin.ui.tray
 import gremlin.ui.util
 
 # ruff: enable[E402]
@@ -227,7 +227,18 @@ def register_config_options() -> None:
         "minimize-to-tray",
         PropertyType.Bool,
         False,
-        "Minimize to the system tray instead of the taskbar.",
+        "Minimize the Gremlin window to the system tray instead of the taskbar.",
+        {},
+        True,
+    )
+    cfg.register(
+        "global",
+        "general",
+        "close-to-tray",
+        PropertyType.Bool,
+        False,
+        "Closing the Gremlin window hides it in the system tray rather than "
+        "terminating Gremlin. Quit via the tray icon's menu.",
         {},
         True,
     )
@@ -459,13 +470,11 @@ class JoystickGremlinApp(QtWidgets.QApplication):
         ):
             changed.connect(self._theme_refresh_timer.start)
 
-        # Create the system tray icon so the window can hide to and be
-        # restored from the tray, and tear it down cleanly on exit.
-        self.tray_icon = gremlin.ui.tray.SystemTrayIcon(self.main_window)
-        self.aboutToQuit.connect(self.tray_icon.remove)
+        self.tray_icon = gremlin.ui.system_tray.SystemTrayIcon(self.main_window)
 
         # Run UI.
         self.syslog.info("Gremlin UI launching")
+        self.aboutToQuit.connect(self.tray_icon.remove)
         self.aboutToQuit.connect(shutdown_cleanup)
 
     def _on_theme_colors_changed(self) -> None:
