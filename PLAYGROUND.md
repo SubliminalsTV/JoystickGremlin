@@ -1,15 +1,16 @@
 # Joystick Gremlin — SubliminalsTV Build
 
-My playground build of Joystick Gremlin, based on **R14.3**. This is where I test features I'm considering pushing toward the official build — if something proves itself here, it goes upstream to WhiteMagic as a proper PR. You'll know you're running it by the SubliminalsTV logo and **"Experimental Features"** badge in the top-right of the toolbar.
+My playground build of Joystick Gremlin, based on **R15**. This is where I test features I'm considering pushing toward the official build — if something proves itself here, it goes upstream to WhiteMagic as a proper PR. You'll know you're running it by the SubliminalsTV logo and **"Experimental Features"** badge in the top-right of the toolbar.
 
-The trade-off's simple: you get to try new stuff early, at the cost of some stability. Want rock-solid? Run WhiteMagic's official R14.3. Want to poke at what might be coming and don't mind the occasional rough edge? This is for you.
+The trade-off's simple: you get to try new stuff early, at the cost of some stability. Want rock-solid? Run WhiteMagic's official R15. Want to poke at what might be coming and don't mind the occasional rough edge? This is for you.
 
-## What's different from R14.3
-- **Light / Dark / High Contrast Dark** themes — switch live, no restart
+## What's different from R15
+- **Themes as data** — Light, Dark and High Contrast out of the box, switching live with no restart. Adding another is a data entry, not a code change.
 - **Minimize to system tray** — optional, off by default
-- **Play Sound / Text-to-Speech** work in the packaged build
 - **Offline profile CLI** (`gremlin_cli.py`) for inspecting and editing profile XML
-- Runs **side-by-side** with the official build (isolated settings)
+- Keeps its **own settings directory**, so it never stomps on the official build's config or profiles
+
+> Don't run this and the official build at the same time — they both grab the vJoy devices. Pick one, close it, then start the other.
 
 ## Get it
 Grab the latest from [Releases](https://github.com/SubliminalsTV/JoystickGremlin/releases), extract it, and run `joystick_gremlin_playground.exe` from the folder. If you use HidHide to hide your physical sticks, whitelist that `.exe` so they show up.
