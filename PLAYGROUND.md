@@ -12,8 +12,10 @@ The trade-off's simple, and it's steeper than usual this time: you're running an
 
 > Don't run this and the official build at the same time — they both grab the vJoy devices. Pick one, close it, then start the other.
 
+## Updates
+This build tells you when I've shipped a new one — it checks this fork on start, not the official release, so the notification is about the playground and not about WhiteMagic's build. There's no installer and nothing updates itself: when you're told there's a new build, grab the zip from [Releases](https://github.com/SubliminalsTV/JoystickGremlin/releases) and replace the folder.
+
 ## Known rough edges
-- The title bar still reports **R14.3**. The Kobold branch was cut just before the R15 version bump; it's cosmetic.
 - Drag & drop of actions is a prototype on WhiteMagic's side and only partly works.
 
 ## Get it
