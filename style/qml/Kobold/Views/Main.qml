@@ -427,8 +427,6 @@ ApplicationWindow {
 
                 source: "../../../../gfx/experimental-logo.png"
                 fillMode: Image.PreserveAspectFit
-                sourceSize.width: 128
-                sourceSize.height: 128
                 smooth: true
                 mipmap: true
 
