@@ -268,9 +268,10 @@ class Backend(QtCore.QObject):
             if last_version < version:
                 version_string = ".".join(str(x) for x in version)
                 signal.showNotification.emit(
-                    "New version available",
-                    f"A newer version of Joystick Gremlin, {version_string} "
-                    f"is available.",
+                    "New playground build available",
+                    f"A newer SubliminalsTV playground build, {version_string}, "
+                    f"is available. Download it from\n"
+                    f"https://github.com/SubliminalsTV/JoystickGremlin/releases",
                 )
                 self.config.set(
                     "global", "internal", "last-known-version", version_string

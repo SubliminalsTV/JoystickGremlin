@@ -1038,8 +1038,8 @@ def latest_gremlin_version() -> str | None:
     """
     try:
         with urllib.request.urlopen(
-            "https://raw.githubusercontent.com/WhiteMagic/JoystickGremlin/"
-            "refs/heads/develop/version.json",
+            "https://raw.githubusercontent.com/SubliminalsTV/JoystickGremlin/"
+            "refs/heads/playground/version.json",
             timeout=5,
         ) as response:
             data = response.read()
@@ -1068,14 +1068,18 @@ def get_code_version() -> str:
 def get_code_release() -> str:
     """Returns the release string derived from the semantic version number,
 
+    The trailing "+" marks the playground build, which sits on top of the named
+    release rather than being it. The patch component tracks playground builds
+    and is deliberately not shown.
+
     Returns:
         Gremlin's release number.
     """
     version = [int(v) for v in get_code_version().split(".")]
     if version[1] == 0:
-        return f"R{version[0]}"
+        return f"R{version[0]}+"
     else:
-        return f"R{version[0]}.{version[1]}"
+        return f"R{version[0]}.{version[1]}+"
 
 
 def first_available_input(

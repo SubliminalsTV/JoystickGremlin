@@ -409,8 +409,17 @@ ApplicationWindow {
 
             // Flags this as the SubliminalsTV experimental build so support
             // helpers can recognise it.
+        }
+
+        // Flags this as the SubliminalsTV experimental build so support helpers
+        // can recognise it. Anchored rather than placed in the row above so it
+        // centres on the window, independent of how wide either side grows.
+        Row {
+            anchors.centerIn: parent
+            spacing: Metrics.gapM
+
             Label {
-                Layout.rightMargin: Metrics.gapM
+                anchors.verticalCenter: parent.verticalCenter
 
                 text: "Experimental"
                 color: Theme.warning
@@ -422,10 +431,9 @@ ApplicationWindow {
             Image {
                 id: _experimentalLogo
 
-                Layout.rightMargin: Metrics.gapM
-                Layout.alignment: Qt.AlignVCenter
-                Layout.preferredWidth: Metrics.controlHeight
-                Layout.preferredHeight: Metrics.controlHeight
+                anchors.verticalCenter: parent.verticalCenter
+                width: Metrics.controlHeight
+                height: Metrics.controlHeight
 
                 source: "../../../../gfx/experimental-logo.png"
                 fillMode: Image.PreserveAspectFit
