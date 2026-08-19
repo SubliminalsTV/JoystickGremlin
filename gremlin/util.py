@@ -850,9 +850,16 @@ def truncate(text: str, left_size: int, right_size: int) -> str:
 def userprofile_path() -> str:
     """Returns the path to the user's profile folder, %userprofile%.
 
+    JG_DATA_DIR overrides the location so parallel builds can keep separate
+    configurations; without it a build that lacks another's config options
+    purges them on start.
+
     Returns:
         Path to the user's profile folder
     """
+    data_dir = os.getenv("JG_DATA_DIR")
+    if data_dir:
+        return str(Path(data_dir).resolve())
     return str((Path(os.getenv("userprofile")) / "Joystick Gremlin").resolve())
 
 
