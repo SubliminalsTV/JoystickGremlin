@@ -1,0 +1,25 @@
+{
+  "folders": [
+    {
+      "name": "JoystickGremlin",
+      "path": "E:\\06. Dev Projects\\SubliminalsTV\\JoystickGremlin"
+    },
+    {
+      "name": "Skills",
+      "path": "E:\\06. Dev Projects\\SubliminalsTV\\subliminal-claude-config"
+    },
+    {
+      "name": "Project Memory",
+      "path": "C:\\Users\\subli\\.claude\\projects\\E--06--Dev-Projects-SubliminalsTV-JoystickGremlin\\memory"
+    }
+  ],
+  "settings": {
+    "files.watcherExclude": {
+      "**/node_modules/**": true,
+      "**/.git/objects/**": true
+    },
+    "files.exclude": {
+      "**/$RECYCLE.BIN": true
+    }
+  }
+}

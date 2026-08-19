@@ -62,6 +62,7 @@ import gremlin.types
 import gremlin.ui.backend
 import gremlin.ui.icon_provider
 import gremlin.ui.option
+import gremlin.ui.system_tray
 import gremlin.ui.theme_manager
 import gremlin.ui.tools
 
@@ -227,6 +228,27 @@ def register_config_options() -> None:
         "100",
         "UI scaling percentage.",
         {"valid_options": ["100", "150", "200"]},
+        True,
+    )
+    cfg.register(
+        "global",
+        "general",
+        "minimize-to-tray",
+        PropertyType.Bool,
+        False,
+        "Minimize the Gremlin window to the system tray instead of the taskbar.",
+        {},
+        True,
+    )
+    cfg.register(
+        "global",
+        "general",
+        "close-to-tray",
+        PropertyType.Bool,
+        False,
+        "Closing the Gremlin window hides it in the system tray rather than "
+        "terminating Gremlin. Quit via the tray icon's menu.",
+        {},
         True,
     )
     cfg.register(
@@ -449,9 +471,11 @@ class JoystickGremlinApp(QtWidgets.QApplication):
         self.backend.check_for_updates()
 
         self.main_window = self.engine.rootObjects()[0]
+        self.tray_icon = gremlin.ui.system_tray.SystemTrayIcon(self.main_window)
 
         # Run UI.
         self.syslog.info("Gremlin UI launching")
+        self.aboutToQuit.connect(self.tray_icon.remove)
         self.aboutToQuit.connect(shutdown_cleanup)
 
     def process_cmd_args(self, args: argparse.Namespace) -> None:
