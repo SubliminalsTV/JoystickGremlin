@@ -406,6 +406,44 @@ ApplicationWindow {
                 //     highlighted: _modeSelector.highlightedIndex === index
                 // }
             }
+
+            // Flags this as the SubliminalsTV experimental build so support
+            // helpers can recognise it.
+            Label {
+                Layout.rightMargin: Metrics.gapM
+
+                text: "Experimental"
+                color: Theme.accent
+                font.bold: true
+            }
+
+            Image {
+                id: _experimentalLogo
+
+                Layout.rightMargin: Metrics.gapM
+                Layout.alignment: Qt.AlignVCenter
+                Layout.preferredWidth: Metrics.controlHeight
+                Layout.preferredHeight: Metrics.controlHeight
+
+                source: "../../../../gfx/experimental-logo.png"
+                fillMode: Image.PreserveAspectFit
+                sourceSize.width: 128
+                sourceSize.height: 128
+                smooth: true
+                mipmap: true
+
+                MouseArea {
+                    id: _experimentalLogoHover
+
+                    anchors.fill: parent
+                    hoverEnabled: true
+                }
+                ToolTip {
+                    visible: _experimentalLogoHover.containsMouse
+                    text: qsTr("SubliminalsTV experimental build")
+                    delay: 500
+                }
+            }
         }
     }
 
