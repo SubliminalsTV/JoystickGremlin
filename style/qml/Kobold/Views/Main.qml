@@ -413,8 +413,10 @@ ApplicationWindow {
                 Layout.rightMargin: Metrics.gapM
 
                 text: "Experimental"
-                color: Theme.accent
-                font.bold: true
+                color: Theme.warning
+                font.family: FontType.sans
+                font.pixelSize: Metrics.textDetail
+                font.weight: FontType.semiBold
             }
 
             Image {
